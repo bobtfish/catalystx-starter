@@ -19,6 +19,8 @@ sub _boilerplate {
 
 sub _module2dist {
     my $module = shift;
+    die("You seem to have passed a dist name, not a module name: $module\n")
+        unless $module =~ /::/;
     $module =~ s/::/-/g;
     return $module;
 }
