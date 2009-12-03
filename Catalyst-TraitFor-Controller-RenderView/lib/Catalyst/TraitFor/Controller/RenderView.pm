@@ -11,7 +11,9 @@ sub end :Action {}
 after 'end' => sub {
     my ($controller, $ctx) = @_;
     # Yes, yes - I am evil.
+    no warnings 'redefine';
     local *next::method = sub { };
+    use warnings 'redefine';
     bless({}, 'FakeAction')->Catalyst::Action::RenderView::execute($controller, $ctx);
 };
 
