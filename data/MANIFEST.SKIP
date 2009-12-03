@@ -7,3 +7,5 @@ cover_db
 Makefile$
 Makefile.old$
 ^[% DIST_NAME %]-
+^.gitignore
+
