@@ -1,4 +1,6 @@
-use inc::Module::Install;
+use strict;
+use warnings;
+use inc::Module::Install 0.91;
 
 name('CatalystX-Starter');
 all_from('lib/CatalystX/Starter.pm');
@@ -6,9 +8,8 @@ all_from('lib/CatalystX/Starter.pm');
 requires 'Catalyst::Runtime';
 requires 'Catalyst::Devel';
 requires 'Test::More';
-requires 'ok';
-requires 'Test::Pod';
-requires 'Test::Pod::Coverage';
+requires 'Test::Pod' => '1.14';
+requires 'Test::Pod::Coverage' => '1.04';
 requires 'File::ShareDir';
 requires 'File::Copy::Recursive';
 requires 'File::Slurp';
