@@ -1,12 +1,31 @@
 package TestApp::Controller::Root;
-use strict;
-use warnings;
+use Moose;
+use namespace::autoclean;
 
-__PACKAGE__->config(namespace => q{});
+BEGIN { extends qw/Catalyst::Controller/ }
+with 'CatalystX::Component::Traits';
 
-use base 'Catalyst::Controller';
+__PACKAGE__->config(
+    namespace => '',
+#FIXME    traits => [qw/ RenderView /],
+);
+with 'Catalyst::TraitFor::Controller::RenderView';
 
-# your actions replace this one
-sub main :Path { $_[1]->res->body('<h1>It works</h1>') }
+sub test_view : Global {
+    my( $self, $c ) = @_;
+    $c->config->{ view } = 'TestApp::View::TestView';
+    return 1;
+}
+
+sub test_firstview : Global {
+    my( $self, $c ) = @_;
+    delete $c->config->{ view };
+    return 1;
+}
+
+sub test_skipview : Global {
+    my( $self, $c ) = @_;
+    $c->res->body( 'Skipped View' );
+}
 
 1;
