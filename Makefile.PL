@@ -21,6 +21,8 @@ build_requires 'Test::Exception';
 
 install_script('bin/catalystx-starter');
 
-no_index directory => 'data';
+resources repository => 'git://github.com/bobtfish/catalystx-starter.git';
+
+no_index directory => 'lib/auto';
 
 WriteAll();
