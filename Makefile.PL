@@ -20,6 +20,7 @@ build_requires 'File::pushd';
 build_requires 'Directory::Scratch';
 build_requires 'Test::TableDriven';
 build_requires 'Test::Exception';
+build_requires 'Test::use::ok';
 
 install_script('bin/catalystx-starter');
 
